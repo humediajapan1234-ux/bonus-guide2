@@ -331,7 +331,10 @@ function showLv(lv) {
   tbl.innerHTML = tableRows.map(diamonds => {
     const usd = (diamonds * d.rateNum).toFixed(1);
     const jpy = Math.round(diamonds * d.rateNum * FX).toLocaleString();
-    return `<div class="card-row"><span class="card-label">${(diamonds/10000).toFixed(0)}万ダイヤ</span><span class="card-val">$${usd} / <span style="color:#D85A30;">¥${jpy}</span></span></div>`;
+    return `<div class="card-row">
+      <span class="card-label">${fmtD(diamonds)}&nbsp;<span style="font-size:11px;color:#aaa;">(${(diamonds/10000).toFixed(0)}万)</span></span>
+      <span class="card-val">$${usd}&ensp;<span style="color:#D85A30;font-weight:500;">¥${jpy}</span></span>
+    </div>`;
   }).join('');
 }
 
