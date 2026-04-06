@@ -78,29 +78,7 @@ h1 { font-size: 15px; font-weight: 500; color: #1a1a1a; margin-bottom: 0.25rem; 
     <div class="card-row"><span class="card-label">為替レート</span><span class="card-val">¥158.938 / $</span></div>
   </div>
 
-  <div class="section-title">単位の読み方（初めての方へ）</div>
-  <div class="card">
-    <div class="card-row">
-      <span class="card-label">K（キロ）</span>
-      <span class="card-val">× 1,000　例）100K = 100,000ダイヤ</span>
-    </div>
-    <div class="card-row">
-      <span class="card-label">M（メガ）</span>
-      <span class="card-val">× 1,000,000　例）1M = 100万ダイヤ</span>
-    </div>
-    <div class="card-row">
-      <span class="card-label">ダイヤ</span>
-      <span class="card-val">リスナーのギフトで獲得するTikTok内仮想通貨</span>
-    </div>
-    <div class="card-row">
-      <span class="card-label">レベニュー（Revenue）</span>
-      <span class="card-val">ダイヤ × レートで算出される円換算収益のこと</span>
-    </div>
-    <div class="card-row">
-      <span class="card-label">エージェンシー受取額</span>
-      <span class="card-val">TikTokから事務所が受け取る金額（円換算後）</span>
-    </div>
-  </div>
+
 
   <div class="section-title">ボーナス一覧</div>
   <div class="card">
@@ -331,10 +309,7 @@ function showLv(lv) {
   tbl.innerHTML = tableRows.map(diamonds => {
     const usd = (diamonds * d.rateNum).toFixed(1);
     const jpy = Math.round(diamonds * d.rateNum * FX).toLocaleString();
-    return `<div class="card-row">
-      <span class="card-label">${fmtD(diamonds)}&nbsp;<span style="font-size:11px;color:#aaa;">(${(diamonds/10000).toFixed(0)}万)</span></span>
-      <span class="card-val">$${usd}&ensp;<span style="color:#D85A30;font-weight:500;">¥${jpy}</span></span>
-    </div>`;
+    return `<div class="card-row"><span class="card-label">${(diamonds/10000).toFixed(0)}万ダイヤ</span><span class="card-val">$${usd} / <span style="color:#D85A30;">¥${jpy}</span></span></div>`;
   }).join('');
 }
 
